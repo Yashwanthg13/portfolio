@@ -1,0 +1,14 @@
+# Git files
+.git
+.gitignore
+
+# Editor files
+.vscode
+.idea
+
+# Node modules (if any in future)
+node_modules
+
+# System files
+.DS_Store
+Thumbs.db
