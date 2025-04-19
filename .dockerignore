@@ -12,3 +12,6 @@ node_modules
 # System files
 .DS_Store
 Thumbs.db
+
+# Don't ignore nginx config template
+!nginx.conf.template
