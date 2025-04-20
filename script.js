@@ -262,7 +262,6 @@ function generateProjects() {
             <div class="technologies">
                 ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
             </div>
-            <a href="${project.link}" class="btn" target="_blank">View Project</a>
         `;
         projectsGrid.appendChild(projectCard);
     });
