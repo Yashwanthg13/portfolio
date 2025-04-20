@@ -267,6 +267,18 @@ function generateProjects() {
     });
 }
 
+// Theme Switcher
+const themeToggle = document.getElementById('theme-toggle');
+const storedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', storedTheme);
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
 // Initialize dynamic content
 document.addEventListener('DOMContentLoaded', () => {
     generateExperienceTimeline();
