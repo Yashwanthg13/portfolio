@@ -272,11 +272,41 @@ const themeToggle = document.getElementById('theme-toggle');
 const storedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', storedTheme);
 
+// Set initial icon based on stored theme
+const initialIcon = themeToggle.querySelector('i');
+initialIcon.className = storedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
 themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    // Add transition class before changing theme
+    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    
+    // Update icon efficiently
+    const icon = themeToggle.querySelector('i');
+    requestAnimationFrame(() => {
+        icon.classList.add('rotating');
+        icon.className = newTheme === 'dark' ? 'fas fa-sun rotating' : 'fas fa-moon rotating';
+        
+        // Remove rotation class after animation
+        setTimeout(() => {
+            icon.classList.remove('rotating');
+        }, 300);
+    });
+    
+    // Batch style updates
+    requestAnimationFrame(() => {
+        document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        
+        // Remove transition after theme change
+        setTimeout(() => {
+            document.body.style.transition = '';
+        }, 300);
+    });
 });
 
 // Initialize dynamic content
