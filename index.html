@@ -3,256 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yashwanth G - Professional Software Engineer Portfolio | Full Stack Developer">
-    <meta name="keywords" content="software engineer, web developer, full stack developer, java developer">
-    <title>Yashwanth G - Software Engineer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Yashwanth G | Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="fade-in-page">
-    <!-- Scroll Progress -->
-    <div class="scroll-progress"></div>
-
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-content">
-                <div class="nav-logo">
-                    <span class="logo-text shine">YG</span>
-                    <div class="logo-dot"></div>
-                </div>
+<body>
+    <header>
+        <nav>
+            <div class="nav-content">
+                <a href="#home" class="logo">YG<span class="logo-dot"></span></a>
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="nav-controls">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Software Developer</h1>
+                    <p class="hero-text">I build exceptional and scalable web applications with a focus on user experience.</p>
+                    <a href="#projects" class="cta-btn">View My Work</a>
                 </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content stagger-children">
-            <div class="hero-greeting floating">
-                <span class="emoji">👋</span> 
-                <span class="greeting-text">Hello, I'm</span>
-            </div>
-            <h1 class="premium-title"><span class="highlight">Yashwanth G</span></h1>
-            <p class="typewriter"></p>
-            <p class="hero-description">Crafting elegant digital experiences through clean, efficient code</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn primary-btn premium-btn shine">Get in Touch</a>
-                <a href="#projects" class="btn secondary-btn hover-lift">View Projects</a>
-            </div>
-            <div class="social-links stagger-children">
-                <a href="https://www.linkedin.com/in/yashwanth-g" target="_blank" class="social-btn hover-lift">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/yashwanthg13" target="_blank" class="social-btn hover-lift">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="mailto:yashwanthg.work@gmail.com" target="_blank" class="social-btn hover-lift">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">About Me</span>
-                <h2 class="section-title" data-parallax="0.2">My Journey</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text premium-card">
-                    <p>A passionate Computer Engineering student at Government Engineering College Mosalehosahalli, Hassan, specializing in full-stack development and problem-solving. With a strong foundation in computer science and a CGPA of 8.74, I strive to create impactful solutions that make a difference.</p>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Projects Completed</span>
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/600x400" alt="E-commerce Platform">
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">8.74</span>
-                            <span class="stat-label">CGPA</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills-section">
-                    <h3>Technical Expertise</h3>
-                    <div class="skills-container">
-                        <div class="skills-category">
-                            <h4>Core Languages</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <i class="fab fa-java"></i>
-                                    <span>Java</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-python"></i>
-                                    <span>Python</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fas fa-code"></i>
-                                    <span>C</span>
-                                </div>
+                        <div class="project-info">
+                            <h3>E-commerce Platform</h3>
+                            <p>A full-featured online store with real-time inventory management and secure payment processing.</p>
+                            <div class="tech-stack">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
                             </div>
                         </div>
-                        <div class="skills-category">
-                            <h4>Web Technologies</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <i class="fab fa-html5"></i>
-                                    <span>HTML5</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-css3-alt"></i>
-                                    <span>CSS3</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-js"></i>
-                                    <span>JavaScript</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-angular"></i>
-                                    <span>AngularJS</span>
-                                </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/600x400" alt="Task Management System">
+                        </div>
+                        <div class="project-info">
+                            <h3>Task Management System</h3>
+                            <p>A collaborative task management application with real-time updates and team features.</p>
+                            <div class="tech-stack">
+                                <span>Vue.js</span>
+                                <span>Firebase</span>
+                                <span>Tailwind CSS</span>
                             </div>
                         </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <ul>
+                            <li><i class="fab fa-html5"></i>HTML & CSS</li>
+                            <li><i class="fab fa-js"></i>JavaScript (ES6+)</li>
+                            <li><i class="fab fa-react"></i>React.js</li>
+                            <li><i class="fab fa-vuejs"></i>Vue.js</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend Development</h3>
+                        <ul>
+                            <li><i class="fab fa-node-js"></i>Node.js</li>
+                            <li><i class="fas fa-server"></i>Express.js</li>
+                            <li><i class="fas fa-database"></i>MongoDB</li>
+                            <li><i class="fas fa-code-branch"></i>RESTful APIs</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <ul>
+                            <li><i class="fab fa-git-alt"></i>Git & GitHub</li>
+                            <li><i class="fab fa-docker"></i>Docker</li>
+                            <li><i class="fab fa-aws"></i>AWS Services</li>
+                            <li><i class="fas fa-code"></i>VS Code</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Professional Journey</span>
-                <h2 class="section-title" data-parallax="0.2">Experience</h2>
-            </div>
-            <div class="timeline">
-                <!-- Timeline items populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Latest Work</span>
-                <h2 class="section-title" data-parallax="0.2">Featured Projects</h2>
-            </div>
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Dev</button>
-                <button class="filter-btn" data-filter="app">App Dev</button>
-                <button class="filter-btn" data-filter="other">Other</button>
-            </div>
-            <div class="projects-grid">
-                <!-- Project cards populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Get In Touch</span>
-                <h2 class="section-title" data-parallax="0.2">Let's Connect</h2>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>yashwanthg.work@gmail.com</p>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>Hassan, Karnataka, India</p>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p>Available upon request</p>
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p>I'm currently available for freelance projects and full-time positions.</p>
+                    <div class="social-links">
+                        <a href="mailto:contact@example.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="contact-form-container">
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" name="name" id="name" placeholder=" " required>
-                            <label for="name">Full Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" placeholder=" " required>
-                            <label for="email">Email Address</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" id="message" placeholder=" " required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="btn primary-btn">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content premium-card">
-            <div class="footer-logo">
-                <span class="logo-text shine">YG</span>
-                <div class="logo-dot"></div>
-            </div>
-            <div class="footer-links">
-                <a href="#home" class="hover-lift">Home</a>
-                <a href="#about" class="hover-lift">About</a>
-                <a href="#experience" class="hover-lift">Experience</a>
-                <a href="#projects" class="hover-lift">Projects</a>
-                <a href="#contact" class="hover-lift">Contact</a>
-            </div>
-            <div class="footer-social stagger-children">
-                <a href="https://www.linkedin.com/in/yashwanth-g" target="_blank" class="hover-lift"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/yashwanthg13" target="_blank" class="hover-lift"><i class="fab fa-github"></i></a>
-                <a href="mailto:yashwanthg.work@gmail.com" target="_blank" class="hover-lift"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
+    <footer>
+        <div class="container">
             <p>&copy; 2024 Yashwanth G. All rights reserved.</p>
         </div>
     </footer>
