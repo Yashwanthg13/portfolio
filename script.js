@@ -1,97 +1,117 @@
-// Smooth scroll handling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinksWrapper = document.querySelector('.nav-links-wrapper');
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
+mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('active');
+    navLinksWrapper.classList.toggle('active');
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
-};
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+const themeIcon = themeToggle.querySelector('i');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-up');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.querySelectorAll('.project-card, .skill-category, .section-title, .contact-content')
-    .forEach(el => observer.observe(el));
-
-// Active section highlighting
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-function updateActiveSection() {
-    const currentPos = window.scrollY;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        
-        if (currentPos >= sectionTop && currentPos < sectionBottom) {
-            const id = section.getAttribute('id');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}
-
-// Debounce function for scroll events
-function debounce(func, wait = 10) {
-    let timeout;
-    return function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this), wait);
-    };
-}
-
-// Add scroll event listener with debounce
-window.addEventListener('scroll', debounce(updateActiveSection));
-
-// Project card subtle hover effect
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-4px)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-    });
+themeToggle?.addEventListener('click', () => {
+    html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    themeIcon.className = html.dataset.theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
 });
 
-// Initialize page
+// Typing Animation with cursor hide
+const text = "Yashwanth G";
+const typingText = document.querySelector('.typing-text');
+const typingCursor = document.querySelector('.typing-cursor');
+let charIndex = 0;
+
+function type() {
+    if (charIndex < text.length) {
+        typingText.textContent += text.charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 150);
+    } else {
+        // Hide cursor after typing completes
+        setTimeout(() => {
+            typingCursor.classList.add('hide');
+        }, 1500);
+    }
+}
+
+// Create floating particles
+function createParticles() {
+    const hero = document.querySelector('.hero');
+    const particles = document.createElement('div');
+    particles.className = 'particles';
+    hero.appendChild(particles);
+
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (Math.random() * 5 + 10) + 's';
+        particles.appendChild(particle);
+    }
+}
+
+// Mouse trail effect
+function createTrailDot(x, y) {
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    dot.style.cssText = `
+        position: fixed;
+        width: 4px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.8;
+        left: ${x}px;
+        top: ${y}px;
+        transition: transform 0.15s ease;
+    `;
+    document.body.appendChild(dot);
+    
+    setTimeout(() => {
+        dot.style.transform = 'scale(0)';
+        setTimeout(() => dot.remove(), 150);
+    }, 100);
+}
+
+let throttleTimer;
+document.addEventListener('mousemove', (e) => {
+    if (!throttleTimer) {
+        throttleTimer = setTimeout(() => {
+            createTrailDot(e.clientX, e.clientY);
+            throttleTimer = null;
+        }, 50);
+    }
+});
+
+// Initialize everything when DOM loads
 document.addEventListener('DOMContentLoaded', () => {
-    // Add initial animations
-    document.body.classList.add('loaded');
-    
-    // Check active section on page load
-    updateActiveSection();
-    
-    // Set initial opacity for fade-in elements
-    document.querySelectorAll('.fade-up').forEach(el => {
-        el.style.opacity = '0';
+    setTimeout(type, 500);
+    createParticles();
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        navLinksWrapper.classList.remove('active');
     });
 });
+
+// Add glowing effect to blinkers
+function pulseEffect() {
+    const blinkers = document.querySelectorAll('.blinker, .typing-cursor');
+    blinkers.forEach(blinker => {
+        blinker.style.boxShadow = '0 0 15px var(--accent)';
+        setTimeout(() => {
+            blinker.style.boxShadow = '0 0 8px var(--accent)';
+        }, 200);
+    });
+}
+
+// Pulse blinkers every 3 seconds
+setInterval(pulseEffect, 3000);
