@@ -2,9 +2,23 @@
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinksWrapper = document.querySelector('.nav-links-wrapper');
 
+const navMenu = document.querySelector('.nav-menu');
+
 mobileMenuBtn?.addEventListener('click', () => {
     mobileMenuBtn.classList.toggle('active');
-    navLinksWrapper.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navMenu?.classList.contains('active') && 
+        !navMenu.contains(e.target) && 
+        !mobileMenuBtn.contains(e.target)) {
+        mobileMenuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 });
 
 // Theme Toggle
@@ -12,10 +26,18 @@ const themeToggle = document.getElementById('theme-toggle');
 const html = document.documentElement;
 const themeIcon = themeToggle.querySelector('i');
 
+// Initialize theme icon based on current theme
+function updateThemeIcon() {
+    themeIcon.className = html.dataset.theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+}
+
 themeToggle?.addEventListener('click', () => {
     html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-    themeIcon.className = html.dataset.theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    updateThemeIcon();
 });
+
+// Set initial theme icon state
+document.addEventListener('DOMContentLoaded', updateThemeIcon);
 
 // Typing Animation with cursor hide
 const text = "Yashwanth G";
@@ -98,7 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         mobileMenuBtn.classList.remove('active');
-        navLinksWrapper.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
     });
 });
 
